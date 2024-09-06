@@ -1,0 +1,83 @@
+# .NET 8 Ignore Rules
+## Ignore Visual Studio temporary files, build results, and
+## .NET Core build artifacts.
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vs/
+.vscode/
+*.pdb
+*.cache/
+*.log
+**/bin/
+**/obj/
+**/TestResults/
+
+# Ignore any coverage results
+coverage/
+
+# DotNetCore specific
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Publish directory
+publish/
+
+# Azure Web App publish settings
+.publishsettings
+
+# Dotnet local tool settings
+.localtoolmanifest.json
+
+# Angular Ignore Rules
+## See https://github.com/github/gitignore/blob/main/Node.gitignore
+
+# compiled output
+dist/
+tmp/
+out-tsc/
+build/
+
+Migrations/
+appsettings.Development.json
+UserSeedData.json
+client/ssl/* 
+
+# dependencies
+node_modules/
+
+# Angular specific
+.angular/
+.angular-cache/
+
+# Angular environment files
+src/environments/environment.development.ts
+
+# IDE and tooling specific
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and temporary files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore TypeScript cache
+*.tsbuildinfo
+
+# Ignore Angular generated files (optional, depends on your project)
+src/**/*.js
+src/**/*.js.map
+src/**/*.d.ts
+
+# Ignore production build
+src/**/*.prod.ts
