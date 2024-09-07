@@ -1,4 +1,4 @@
-﻿using API.Dto;
+using API.Dto;
 using API.Entities;
 using API.Helpers;
 
@@ -12,6 +12,5 @@ namespace API.Interfaces
 
         void DeleteLike(UserLike userId);
         void AddLike(UserLike userId);
-        Task<bool> SaveChanges();
     }
 }

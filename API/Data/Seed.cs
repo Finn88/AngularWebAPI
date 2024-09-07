@@ -1,4 +1,4 @@
-﻿using API.Entities;
+using API.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
@@ -32,12 +32,6 @@ namespace API.Data
             foreach (var user in users) {
                 if (user is null) continue; 
 
-              //  using var hmac = new HMACSHA512();
-              //  user.UserName = user.UserName?.ToLower();
-              //  user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("1"));
-               // user.PasswordSalt = hmac.Key;
-               // context.Users.Add(user);
-
                 await userManager.CreateAsync(user, "Pa$$w0rd");
                 await userManager.AddToRoleAsync(user, "Member");
             }
@@ -51,8 +45,6 @@ namespace API.Data
             };
             await userManager.CreateAsync(admin, "Pa$$w0rd");
             await userManager.AddToRoleAsync(admin, "Admin");
-
-            //await context.SaveChangesAsync();
         }
     }
 }

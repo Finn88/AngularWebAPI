@@ -1,12 +1,11 @@
-﻿using API.Dto;
+using API.Dto;
 using API.Entities;
 using API.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Win32;
-using System.Security.Cryptography;
+
 
 namespace API.Controllers
 {
@@ -19,17 +18,8 @@ namespace API.Controllers
             var userInDb = await userManager.Users.FirstOrDefaultAsync(x => x.UserName == register.UserName);
             if (userInDb is not null) return BadRequest("User exists");
 
-          //  using var hmac = new HMACSHA512();
-
             var user = mapper.Map<AppUser>(register);
             user.UserName = register.UserName.ToLower();
-           // user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(register.Password));
-           // user.PasswordSalt = hmac.Key;
-            
-
-          //  context.Users.Add(user);
-           // await context.SaveChangesAsync();
-
 
             var result = await userManager.CreateAsync(user, register.Password);
 
@@ -52,10 +42,6 @@ namespace API.Controllers
                 .FirstOrDefaultAsync(x => x.NormalizedUserName == login.UserName.ToUpper());
             
             if(user is null) return Unauthorized("No user found");
-
-            //   using var hmac = new HMACSHA512(user.PasswordSalt);
-            //    var passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(login.Password));
-            //   if(!user.PasswordHash.SequenceEqual(passwordHash)) return Unauthorized("Invalid password");
 
             var result = await userManager.CheckPasswordAsync(user, login.Password);
             if (!result) return Unauthorized("Invalid password");

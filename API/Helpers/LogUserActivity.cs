@@ -1,4 +1,4 @@
-﻿using API.Extensions;
+using API.Extensions;
 using API.Interfaces;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -13,12 +13,12 @@ namespace API.Helpers
             if (context.HttpContext.User.Identity?.IsAuthenticated != true) return;
 
             var userId = resultCcontext.HttpContext.User.GetUserId();
-            var repository = resultCcontext.HttpContext.RequestServices.GetRequiredService<IUserRepository>();
-            var user = await repository.GetUserByIdAsync(userId);
+            var repository = resultCcontext.HttpContext.RequestServices.GetRequiredService<IUnitOfWork>();
+            var user = await repository.UserRepository.GetUserByIdAsync(userId);
             if(user == null) return;
 
             user.LastActive = DateTime.UtcNow;
-            await repository.SaveAllAsync();
+            await repository.Complete();
         }
     }
 }

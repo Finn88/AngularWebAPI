@@ -1,4 +1,6 @@
-﻿namespace API.Entities
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+
+namespace API.Entities
 {
     public class Message
     {
@@ -16,5 +18,6 @@
         public int SenderId { get; set; }
         public AppUser Recipient { get; set; } = null;
         public int RecipientId { get; set; }
+        public ICollection<Connection> Connections { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using API.Dto;
+using API.Dto;
 using API.Entities;
 using API.Helpers;
 using API.Interfaces;
@@ -61,11 +61,6 @@ namespace API.Data
                     break;
             }
             return await PagedList<MemberDto>.CreateAsync(query, likesParams.PageNumber, likesParams.PageSize);
-        }
-
-        public async Task<bool> SaveChanges()
-        {
-           return await context.SaveChangesAsync() > 0;
         }
     }
 }
