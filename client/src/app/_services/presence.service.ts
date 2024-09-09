@@ -32,6 +32,7 @@ export class PresenceService {
       this.onlineUsers.update(users => users.filter(x => x !== username));
     });
     this.hubConnections.on('GetOnlineUsers', usernames => {
+      console.log(usernames);
       this.onlineUsers.set(usernames);
     });
     this.hubConnections.on('NewMessageRecieved', (username, knownAs) => {

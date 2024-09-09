@@ -17,7 +17,7 @@ namespace API.SignaR
         }
         else
         {
-          OnlineUsers.Add(connectedId, [connectedId]);
+          OnlineUsers.Add(username, [connectedId]);
           isOnline = true;
         }
       }
@@ -30,7 +30,7 @@ namespace API.SignaR
       lock (OnlineUsers)
       {
         if (!OnlineUsers.ContainsKey(username)) return Task.FromResult(isOffline);
-        OnlineUsers[username].Remove(connectedId);
+         OnlineUsers[username].Remove(connectedId);
 
         if (OnlineUsers[username].Count == 0) {
           OnlineUsers.Remove(username);

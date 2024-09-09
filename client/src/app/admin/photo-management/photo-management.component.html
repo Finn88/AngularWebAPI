@@ -1,1 +1,18 @@
-<p>photo-management works!</p>
+<div class="row">
+    @for (photo of photos(); track photo.id) {
+    <div class="col-2">
+        <img src="{{photo.url}}" alt="photo of user" class="img-thumbnail mb-1" />
+        <div class="text-center">
+            <button class="btn btn-sm btn-success sm-1"
+                    (click)="confirmPhoto(photo.id)">
+                <i class="fa fa-check"></i>
+            </button>
+            <button class="btn btn-sm btn-danger"
+                    [disabled]="photo.isMain"
+                    (click)="deletePhoto(photo.id)">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+    </div>
+    }
+</div>

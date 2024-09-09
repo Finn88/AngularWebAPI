@@ -2,9 +2,10 @@
     @for (photo of member().photos; track photo.id) {
      <div class="col-2">
          <img src="{{photo.url}}" alt="photo of user" class="img-thumbnail mb-1" />
+         <label style="color: red; margin-left:25px" *ngIf="!photo.isConfirmed">Pending</label>
          <div class="text-center">
              <button class="btn btn-sm me-1"
-                     [disabled]="photo.isMain"
+                     [disabled]="photo.isMain || !photo.isConfirmed"
                      (click)="setMainPhoto(photo)"
                      [ngClass]="photo.isMain ? 'btn-success active' : 'btn-outline-success'">
                  Main

@@ -8,9 +8,9 @@
             </tr>
         </thead>
         <tbody>
-            @for(user of users; track user.username){
+            @for(user of users; track user.userName){
             <tr>
-                <th>{{user.username}}</th>
+                <th>{{user.userName}}</th>
                 <th>{{user.roles}}</th>
                 <th><button (click)="openRolesModal(user)" class="btn btn-info">Edit role</button></th>
             </tr>

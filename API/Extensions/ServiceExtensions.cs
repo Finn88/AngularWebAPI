@@ -23,6 +23,7 @@ namespace API.Extentions
       services.AddScoped<IUserRepository, UserRepository>();
       services.AddScoped<ILikesRepository, LikesRepository>();
       services.AddScoped<IMessageRepository, MessageRepository>();
+      services.AddScoped<IPhotoRepository, PhotoRepository>();
       services.AddScoped<IUnitOfWork, UnitOfWork>();
 
       services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

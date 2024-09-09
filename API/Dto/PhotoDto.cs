@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace API.Dto
 {
@@ -6,5 +6,6 @@ namespace API.Dto
         public int Id { get; set; }
         public string? Url { get; set; }
         public bool IsMain { get; set; }
+        public bool IsConfirmed { get; set; }
     }
 }

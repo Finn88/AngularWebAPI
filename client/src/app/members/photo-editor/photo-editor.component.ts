@@ -47,7 +47,7 @@ export class PhotoEditorComponent implements OnInit {
   } 
 
   deletePhoto(photo: Photo) {
-    this.memberService.deletePhoto(photo).subscribe({
+    this.memberService.deletePhoto(photo.id).subscribe({
       next: _ => {
         const user = this.accountService.currentUser();
         if (user) {
@@ -81,6 +81,7 @@ export class PhotoEditorComponent implements OnInit {
     this.uploader.onSuccessItem = (item, response, status, headers) => {
       const photo = JSON.parse(response);
       const updatedMember = { ...this.member() };
+      photo.isConfirmed = false;
       updatedMember.photos.push(photo);
       this.memberChange.emit(updatedMember);
 

@@ -28,8 +28,7 @@ export class MessageService {
       .withAutomaticReconnect()
       .build();
 
-    this.hubConnection.start().catch(er => console.log(er));
-    this.hubConnection.start().catch(er => console.log(er));
+    this.hubConnection.start().catch(er => console.log(er)); 
     this.hubConnection.on('RecieveMessageThread', messages => {
       this.messageThread.set(messages);
     });

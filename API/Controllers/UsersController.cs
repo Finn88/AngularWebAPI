@@ -61,8 +61,6 @@ namespace API.Controllers
                 Url = result.SecureUrl.AbsoluteUri,
                 PublicId = result.PublicId
             };
-            if (!user.Photos.Any())
-                photo.IsMain = true;
 
             user.Photos.Add(photo);
 

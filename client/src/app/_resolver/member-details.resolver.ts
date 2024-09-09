@@ -9,6 +9,5 @@ export const memberDetailsResolver: ResolveFn<Member | null> = (route, state) =>
   const username = route.paramMap.get('username')
 
   if (!username) return null;
-
   return memberService.getMember(username);
 };

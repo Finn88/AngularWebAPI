@@ -50,7 +50,7 @@ export class MembersService {
       .find((m: Member) => m.username === username);
 
     if (member) return of(member);
-    
+
     return this.http.get<Member>(`${this.baseUrl}users/${username}`);
   }
 
@@ -66,8 +66,8 @@ export class MembersService {
     return this.http.put(`${this.baseUrl}users/set-main-photo/${photoId}`, {})  
   }
 
-  deletePhoto(photo: Photo) {
-    return this.http.delete(`${this.baseUrl}users/delete-photo/${photo.id}`, {}).pipe(
+  deletePhoto(photoId: number) {
+    return this.http.delete(`${this.baseUrl}users/delete-photo/${photoId}`, {}).pipe(
      /* tap(() => {
         this.members.update(members => members.map(m => {
           if (m.photos.includes(photo)) {
